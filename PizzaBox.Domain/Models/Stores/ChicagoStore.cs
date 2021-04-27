@@ -1,6 +1,8 @@
+using System;
 using PizzaBox.Domain.Abstracts;
+using PizzaBox.Domain.Models.Orders;
 
-namespace PizzaBox.Domain.Models
+namespace PizzaBox.Domain.Models.Stores
 {
     public class ChicagoStore : AStore
     {
@@ -8,5 +10,7 @@ namespace PizzaBox.Domain.Models
         {
             name = "ChicagoStore";
         }
+
     }
+
 }
