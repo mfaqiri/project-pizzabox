@@ -6,7 +6,7 @@ namespace PizzaBox.Domain.Models.Toppings
   {
     public Pepporoni()
     {
-      name = "Pepporoni";
+      name = "Pepperoni";
       veget = false;
       vegan = false;
       price = 0.99;

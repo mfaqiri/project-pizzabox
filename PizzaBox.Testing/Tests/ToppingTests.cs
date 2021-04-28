@@ -15,7 +15,7 @@ namespace PizzaBox.Testing.Tests
             var actual = sut.name;
 
             //assert
-            Assert.True(actual == "Mozerella");
+            Assert.True(actual == "Mozzerella");
         }
 
 
@@ -83,7 +83,7 @@ namespace PizzaBox.Testing.Tests
         public void Test_GrilledChicken()
         {
             //arrange
-            var sut = new BlackBeans();
+            var sut = new GrilledChicken();
 
             //act
 
