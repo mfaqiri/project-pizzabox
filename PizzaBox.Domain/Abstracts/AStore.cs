@@ -17,8 +17,8 @@ namespace PizzaBox.Domain.Abstracts
            bool timeLimit = true;
             foreach(Order parse in customer.orders)
             {
-                TimeSpan delta = parse.time - DateTime.Now;
-                if(delta.TotalHours < 2)
+                TimeSpan delta = DateTime.Now - parse.time;
+                if(delta < new TimeSpan(2,0,0))
                 {
                     timeLimit = false;
                 }

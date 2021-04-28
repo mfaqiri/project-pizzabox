@@ -32,7 +32,7 @@ namespace PizzaBox.Client
             
             var customerDec = Console.ReadLine();
 
-            inputCheck(customerDec, 0, _customerSingleton.Customers.Count);
+            customerDec = inputCheck(customerDec, 0, _customerSingleton.Customers.Count);
 
             if(customerDec == "0")
             {
@@ -48,7 +48,7 @@ namespace PizzaBox.Client
 
             var storeDec = Console.ReadLine();
 
-            inputCheck(storeDec, 1, _storeSingleton.Stores.Count);
+            storeDec = inputCheck(storeDec, 1, _storeSingleton.Stores.Count);
 
             var store = _storeSingleton.Stores[int.Parse(storeDec) - 1];
          
@@ -69,25 +69,25 @@ namespace PizzaBox.Client
 
                 if(pizza == null)
                     break;
-                Console.WriteLine($"Pizza Name: {pizza.name} \nPizza Sauce: {pizza.Sauce.name}\t\tprice: {pizza.Sauce.price} \nPizza Crust: {pizza.Crust.name}\t\tprice: {pizza.Crust.price}");
+                Console.WriteLine($"Pizza Name: {pizza.name} \nPizza Sauce: {pizza.Sauce.name}\t\tprice: ${pizza.Sauce.price} \nPizza Crust: {pizza.Crust.name}\t\tprice: ${pizza.Crust.price}");
                 Console.WriteLine($"Toppings:");
                 foreach(var topping in pizza.Toppings)
                 {
                     if(toppingsPrinted.Contains(topping.name))
                         break;
-                    Console.WriteLine($"\t-{topping.name}\t\tprice: {topping.price}");
+                    Console.WriteLine($"\t-{topping.name}\t\tprice: ${topping.price}");
                     toppingsPrinted.Add(topping.name);
                 }
-                Console.WriteLine($"Total Price: {pizza.price}");
+                Console.WriteLine($"Total Price of Pizza: ${pizza.price}");
             }
 
-            Console.WriteLine($"Subtotal: {order.price}\n");
+            Console.WriteLine($"Subtotal: ${order.price}\n");
 
             Console.WriteLine("1 to confirm order or 0 to cancel.");
 
             var finalDec = Console.ReadLine();
 
-            inputCheck(finalDec, 0,1);
+            finalDec = inputCheck(finalDec, 0,1);
 
             if(int.Parse(finalDec) == 1){
 
@@ -177,7 +177,7 @@ namespace PizzaBox.Client
             }
         }
 
-        public static void inputCheck(string input, int start, int end)
+        public static string inputCheck(string input, int start, int end)
         {
             int a; 
             while(!int.TryParse(input, out a) || a < start || a > end)
@@ -185,13 +185,14 @@ namespace PizzaBox.Client
                 Console.WriteLine($"invalid input, input must be an integer between {start}, {end}");
                 input = Console.ReadLine();
             }
+            return input;
         }
 
         public static void getInput(string message, out int output, int start, int end)
         {
             Console.WriteLine(message);
             string mut = Console.ReadLine();
-            inputCheck(mut,start, end);
+            mut = inputCheck(mut,start, end);
             output = int.Parse(mut);
         }
 
@@ -205,16 +206,16 @@ namespace PizzaBox.Client
             {
                 printList(_pizzaSingleton.pizzas);
                 var pizzaDec = Console.ReadLine();
-                inputCheck(pizzaDec, 1, _pizzaSingleton.pizzas.Count);
+                pizzaDec = inputCheck(pizzaDec, 1, _pizzaSingleton.pizzas.Count);
                 var pizza = _pizzaSingleton.pizzas[int.Parse(pizzaDec) - 1];
                 printList(_crustSingleton.Crusts);
                 var crustDec = Console.ReadLine();
-                inputCheck(crustDec,1,_crustSingleton.Crusts.Count);
+                crustDec = inputCheck(crustDec,1,_crustSingleton.Crusts.Count);
                 var crust = _crustSingleton.Crusts[int.Parse(crustDec)-1];
                 pizza.addCrust(crust);
                 printList(_sauceSingleton.Sauces);
                 var sauceDec = Console.ReadLine();
-                inputCheck(sauceDec,1,_sauceSingleton.Sauces.Count);
+                sauceDec = inputCheck(sauceDec,1,_sauceSingleton.Sauces.Count);
                 var sauce = _sauceSingleton.Sauces[int.Parse(sauceDec)-1];
                 pizza.addSauce(sauce);
 
@@ -241,7 +242,7 @@ namespace PizzaBox.Client
                     {
                     printList(_toppingSingleton.toppings);
                     toppingDec = Console.ReadLine();
-                    inputCheck(toppingDec,0,_toppingSingleton.toppings.Count);
+                    toppingDec = inputCheck(toppingDec,0,_toppingSingleton.toppings.Count);
                     if(toppingDec == "0")
                         break;
 
