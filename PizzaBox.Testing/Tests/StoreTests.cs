@@ -51,7 +51,7 @@ namespace PizzaBox.Testing.Tests
             Assert.False(sut);
         }
 
-                [Fact]
+        [Fact]
         public void Test_hasPizza()
         {
             var pizza = new CheesePizza();
@@ -63,6 +63,7 @@ namespace PizzaBox.Testing.Tests
             Assert.True(order.pizzas.Contains(pizza));
         }
 
+        [Fact]
         public void Test_hasPizzaPrice()
         {
             var pizza = new CheesePizza();
@@ -74,6 +75,7 @@ namespace PizzaBox.Testing.Tests
             Assert.True(order.price == pizza.price);
         }
 
+        [Fact]
         public void Test_notHavePizzaPrice()
         {
             var pizza = new CheesePizza();

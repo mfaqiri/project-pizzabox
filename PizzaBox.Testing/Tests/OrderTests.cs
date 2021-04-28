@@ -7,7 +7,7 @@ namespace PizzaBox.Testing.Tests
     {
         
         
-        [Theory]
+        [Fact]
         public void Test_Order()
         {
             //arrange

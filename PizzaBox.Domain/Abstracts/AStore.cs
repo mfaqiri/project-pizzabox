@@ -14,22 +14,22 @@ namespace PizzaBox.Domain.Abstracts
 
         public bool newOrder(Customer customer, Order order)
         {
-           bool timeLimit = false;
-            /*foreach(Order parse in customer.orders)
+           bool timeLimit = true;
+            foreach(Order parse in customer.orders)
             {
                 TimeSpan delta = parse.time - DateTime.Now;
-                if(delta.TotalHours > 2)
+                if(delta.TotalHours < 2)
                 {
-                    timeLimit = true;
+                    timeLimit = false;
                 }
-            }*/
-           // if(timeLimit){
+            }
+            if(timeLimit){
             order.store = this;
             order.price = 0.0;
             orders.Add(order);
             order.customer = customer;
             customer.orders.Add(order);
-          // }
+           }
            return timeLimit;
         }
 

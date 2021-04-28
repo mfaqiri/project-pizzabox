@@ -53,11 +53,11 @@ namespace PizzaBox.Client
             var store = _storeSingleton.Stores[int.Parse(storeDec) - 1];
          
 
-            /*if(!*/store.newOrder(customer,order);/*)
+            if(!store.newOrder(customer,order))
               {
                 Console.WriteLine("Connot make multiple orders within 2 hours");
                 System.Environment.Exit(0);
-              }*/
+              }
 
             
             orderPizzas(store, order);
